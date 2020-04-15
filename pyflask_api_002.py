@@ -14,7 +14,7 @@ db_connect = create_engine('sqlite:///dsNhanVien.db')
 
 @app.route('/')
 def  index():
-    return "<h1> Flask 001 - Hi </h1>"
+    return "<h1> Tu Duong Hieu - Hi </h1>"
 
 @app.route('/login', methods=['GET', 'POST'])
 def  login():
