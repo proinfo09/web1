@@ -16,3 +16,15 @@ def  login():
 @app.route('/profile')
 def  profile():
     return render_template("profile.html")
+
+@app.route('/params', methods=['GET'])
+def api_filter():
+    query_parameters = request.args
+    return jsonify(query_parameters)
+
+class Parameters(Resource):
+    def get(self, firstParam):
+        return "Day la tam so " + firstParam
+
+api = Api(app)
+api.add_resource(Parameters, '/parameters/<firstParam>') # Route_1
