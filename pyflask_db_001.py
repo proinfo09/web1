@@ -41,9 +41,11 @@ def giaiptb1():
     query_parameters = request.args
     a = query_parameters.get("a")
     b = query_parameters.get("b")
-
+    c = query_parameters.get("c")
+    
     a = int(a)
     b = int(b)
+    c = int(c)
     if (a != 0):
         k = b*b -4*a*c
         if (k < 0):
