@@ -51,7 +51,9 @@ def giaiptb1():
         if (k < 0):
             kq = "Vô nghiệm"
         if (k == 0):
-            kq = "Có 1 nghiệm"
+            x = -b/(2*a)
+            str = "Có 1 nghiệm"
+            kq = { "tt" : str , "x" : x}
         if (k > 0):
             kq = "Có 2 nghiệm"
     else:
@@ -64,5 +66,7 @@ def giaiptb1():
             if (c == 0):
                 kq = "Nghiệm là 0"
             else:
-                kq = "Có 1 nghiệm"   
-    return kq
+                x = -c/b
+                str = "Nghiệm là "
+                kq = { "tt" : str , "x" : x}
+    return jsonify(kq)
