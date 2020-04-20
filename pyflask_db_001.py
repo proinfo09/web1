@@ -51,7 +51,7 @@ def giaiptb1():
         if (k < 0):
             kq = "Vô nghiệm"
         if (k == 0):
-            kq = "Có 1 nghiệm là ", -b/(2*a)
+            kq = "Có 1 nghiệm"
         if (k > 0):
             kq = "Có 2 nghiệm"
     else:
@@ -64,5 +64,5 @@ def giaiptb1():
             if (c == 0):
                 kq = "Nghiệm là 0"
             else:
-                kq = "Nghiệm là ", -c/b   
+                kq = "Có 1 nghiệm"   
     return kq
