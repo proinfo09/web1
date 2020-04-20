@@ -35,3 +35,32 @@ class Parameters(Resource):
 
 api = Api(app)
 api.add_resource(Parameters, '/parameters/<firstParam>') # Route_1
+
+@app.route('/giaiptb1', methods=['GET'])
+def giaiptb1():
+    query_parameters = request.args
+    a = query_parameters.get("a")
+    b = query_parameters.get("b")
+
+    a = int(a)
+    b = int(b)
+    if (a != 0):
+        k = b*b -4*a*c
+        if (k < 0):
+            kq = "Vô nghiệm"
+        if (k == 0):
+            kq = "Có 1 nghiệm là ", -b/(2*a)
+        if (k > 0):
+            kq = "Có 2 nghiệm"
+    else:
+        if (b == 0):
+            if (c == 0):
+                kq = "Vô số nghiệm"
+            else:
+                kq = "Vô nghiệm"
+        else:
+            if (c == 0):
+                kq = "Nghiệm là 0"
+            else:
+                kq = "Nghiệm là ", -c/b   
+    return kq
