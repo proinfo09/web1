@@ -57,6 +57,51 @@ def checkTriangle():
     else:
         kq = "khong phai tam giac"      
     return kq
+@app.route('/ngayTiepTheo', methods=['GET'])
+query_parameters = request.args
+a = query_parameters.get("ngay")
+b = query_parameters.get("thang")
+c = query_parameters.get("nam")
+    
+ngay = int(a)
+month = int(b)
+year = int(c)
+print(ngayTiepTheo(ngay,month,year))
+def namNhuan (year):
+    return ((year%400==0) or ((year%4==0) and (year%100!=0)))
+def ngayTrongThang(month):
+    list1 = [1, 3, 5, 7, 8, 10, 12]
+    list2 = [4, 6, 9, 11]
+    if(( month < 1) and (month > 12)):
+        day = -1
+    else:
+        try:
+            if(list1.index(month) == 0):
+                day = 31
+        except ValueError:
+            try:
+                if(list2.index(month) == 0):
+                    day = 30
+            except ValueError:
+                if(namNhuan(year) == 0):
+                    day = 28
+                else:
+                    day = 29
+    return day;	
+def ngayTiepTheo(ngay,month,year):
+    day = ngayTrongThang (month)
+    if (day == -1 or ngay <1 or ngay > day): 
+        return -1
+    else:
+        if (ngay < day):
+            ngay = ngay + 1
+        elif (month!=12):
+            ngay = 1
+            month = month + 1
+        else:
+            ngay = month = 1
+            year = year + 1
+    print("ngay ",ngay," thang ",month," nam ",year)
 @app.route('/giaiptb2', methods=['GET'])
 def giaiptb2():
     query_parameters = request.args
