@@ -38,7 +38,7 @@ class Parameters(Resource):
 api = Api(app)
 api.add_resource(Parameters, '/parameters/<firstParam>') # Route_1
 
-@app.route('/giaiptb1', methods=['GET'])
+@app.route('/giaiptb2', methods=['GET'])
 def giaiptb1():
     query_parameters = request.args
     a = query_parameters.get("a")
@@ -54,21 +54,21 @@ def giaiptb1():
             kq = "Vô nghiệm"
         if (k == 0):
             x = -b/(2*a)
-            str = "Có 1 nghiệm"
+            str = u"Có 1 nghiệm"
             kq = { "tt" : str , "x" : x}
         if (k > 0):
-            kq = "Có 2 nghiệm"
+            kq = u"Có 2 nghiệm"
     else:
         if (b == 0):
             if (c == 0):
-                kq = "Vô số nghiệm"
+                kq = u"Vô số nghiệm"
             else:
-                kq = "Vô nghiệm"
+                kq = u"Vô nghiệm"
         else:
             if (c == 0):
-                kq = "Nghiệm là 0"
+                kq = u"Nghiệm là 0"
             else:
                 x = -c/b
-                str = "Nghiệm là "
+                str = u"Nghiệm là "
                 kq = { "tt" : str , "x" : x}
     return jsonify(kq)
