@@ -60,14 +60,13 @@ def checkTriangle():
 @app.route('/ngayTiepTheo', methods=['GET'])
 def theNextDay:
     query_parameters = request.args
-    a = query_parameters.get("ngay")
-    b = query_parameters.get("thang")
-    c = query_parameters.get("nam")
+    ngay = query_parameters.get("ngay")
+    month = query_parameters.get("thang")
+    year = query_parameters.get("nam")
     
-    ngay = int(a)
-    month = int(b)
-    year = int(c)
-    print(ngayTiepTheo(ngay,month,year))
+    ngay = int(ngay)
+    month = int(month)
+    year = int(year)
     def namNhuan (year):
         return ((year%400==0) or ((year%4==0) and (year%100!=0)))
     def ngayTrongThang(month):
@@ -103,6 +102,7 @@ def theNextDay:
                 ngay = month = 1
                 year = year + 1
         print("ngay ",ngay," thang ",month," nam ",year)
+    print(ngayTiepTheo(ngay,month,year))  
 @app.route('/giaiptb2', methods=['GET'])
 def giaiptb2():
     query_parameters = request.args
