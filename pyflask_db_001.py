@@ -35,7 +35,28 @@ class Parameters(Resource):
 
 api = Api(app)
 api.add_resource(Parameters, '/parameters/<firstParam>') # Route_1
-
+@app.route('/checkTriangle', methods=['GET'])
+def checkTriangle():
+    query_parameters = request.args
+    a = query_parameters.get("a")
+    b = query_parameters.get("b")
+    c = query_parameters.get("c")
+    
+    a = int(a)
+    b = int(b)
+    c = int(c)
+    if (a + b > c) and (a + c > b) and (b + c > a):
+        kq = " day la tam giac "
+        if (a == b) and (b == c):
+            kq = kq + "deu"
+        else:
+            if (a*a == b*b + c*c) or (b*b == a*a + c*c) or (c*c == a*a + b*b):
+                kq = kq + "vuong"
+            if (a == b) or (b == c) or (c == a):
+                kq = kq + "can"
+    else:
+        kq = "khong phai tam giac"      
+    return kq
 @app.route('/giaiptb2', methods=['GET'])
 def giaiptb2():
     query_parameters = request.args
