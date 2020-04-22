@@ -58,14 +58,15 @@ def checkTriangle():
         kq = "khong phai tam giac"      
     return kq
 @app.route('/ngayTiepTheo', methods=['GET'])
-query_parameters = request.args
-ngay = query_parameters.get("ngay")
-month = query_parameters.get("thang")
-year = query_parameters.get("nam")
+def theNextDay(): 
+    query_parameters = request.args
+    ngay = query_parameters.get("ngay")
+    month = query_parameters.get("thang")
+    year = query_parameters.get("nam")
     
-ngay = int(ngay)
-month = int(month)
-year = int(year)
+    ngay = int(ngay)
+    month = int(month)
+    year = int(year)
     def namNhuan (year):
         return ((year%400==0) or ((year%4==0) and (year%100!=0)))
     def ngayTrongThang(month):
@@ -100,7 +101,8 @@ year = int(year)
             else:
                 ngay = month = 1
                 year = year + 1
-        print("ngay ",ngay," thang ",month," nam ",year)
+        kq = { "ngay" : ngay , "thang" : month, "nam" : year}
+        return jsonify(kq)
     print(ngayTiepTheo(ngay,month,year))  
 @app.route('/giaiptb2', methods=['GET'])
 def giaiptb2():
