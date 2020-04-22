@@ -1,12 +1,8 @@
-#!/usr/bin/python
-# -*- coding: utf8 -*-
 from flask import  (
     Flask,
     render_template,
     request
 )
-sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
-sys.stdin = codecs.getreader('utf_8')(sys.stdin)
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
 from json import dumps
@@ -53,24 +49,24 @@ def giaiptb2():
     if (a != 0):
         k = b*b -4*a*c
         if (k < 0):
-            kq = u"Vô nghiệm"
+            kq = "Vo nghiem"
         if (k == 0):
             x = -b/(2*a)
-            str = u"Có 1 nghiệm"
+            str = "Co 1 nghiem"
             kq = { "tt" : str , "x" : x}
         if (k > 0):
-            kq = u"Có 2 nghiệm"
+            kq = "Co 2 nghiem"
     else:
         if (b == 0):
             if (c == 0):
-                kq = u"Vô số nghiệm"
+                kq = "Vo so nghiem"
             else:
-                kq = u"Vô nghiệm"
+                kq = "Vo nghiem"
         else:
             if (c == 0):
-                kq = u"Nghiệm là 0"
+                kq = "Nghiem là 0"
             else:
                 x = -c/b
-                str = u"Nghiệm là "
+                str = "Nghiem la "
                 kq = { "tt" : str , "x" : x}
     return jsonify(kq)
