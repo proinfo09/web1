@@ -51,7 +51,7 @@ def giaiptb1():
     if (a != 0):
         k = b*b -4*a*c
         if (k < 0):
-            kq = "Vô nghiệm"
+            kq = u"Vô nghiệm"
         if (k == 0):
             x = -b/(2*a)
             str = u"Có 1 nghiệm"
