@@ -58,7 +58,6 @@ def checkTriangle():
         kq = "khong phai tam giac"      
     return kq
 @app.route('/ngayTiepTheo', methods=['GET'])
-def theNextDay():
     query_parameters = request.args
     ngay = query_parameters.get("ngay")
     month = query_parameters.get("thang")
