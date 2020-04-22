@@ -5,6 +5,8 @@ from flask import  (
     render_template,
     request
 )
+sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
+sys.stdin = codecs.getreader('utf_8')(sys.stdin)
 from flask_restful import Resource, Api
 from sqlalchemy import create_engine
 from json import dumps
@@ -39,7 +41,7 @@ api = Api(app)
 api.add_resource(Parameters, '/parameters/<firstParam>') # Route_1
 
 @app.route('/giaiptb2', methods=['GET'])
-def giaiptb1():
+def giaiptb2():
     query_parameters = request.args
     a = query_parameters.get("a")
     b = query_parameters.get("b")
