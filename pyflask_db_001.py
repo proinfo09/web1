@@ -103,7 +103,7 @@ def theNextDay():
                 year = year + 1
         kq = { "ngay" : ngay , "thang" : month, "nam" : year}
         return jsonify(kq)
-    print(kq)
+    print(ngayTiepTheo(ngay,month,year))
 @app.route('/giaiptb2', methods=['GET'])
 def giaiptb2():
     query_parameters = request.args
